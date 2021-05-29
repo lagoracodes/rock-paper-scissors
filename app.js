@@ -1,4 +1,4 @@
-console.log('Paper, Rock, Scissors game!');
+console.log('Rock, Paper, Scissors game!');
 
 function computerChoice() {
   let result = Math.floor(Math.random() * 3 + 1);
