@@ -1,37 +1,58 @@
 body {
-  background-color: rgb(255, 230, 148);
+  background-color: #383a59;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 #title-container {
   display: flex;
   flex-direction: column;
   width: 100vw;
   height: 10em;
   text-align: center;
-  background-color: rgb(255, 230, 148);
+  background-color: #383a59;
 }
 #game-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 700px;
   width: 950px;
-  background-color: rgb(255, 241, 194);
-  border: solid rgb(255, 222, 131) 10px;
+  background-color: #282a36;
 }
 #title-text {
   margin: auto;
-  padding: 25px;
-  background-color: rgb(255, 246, 215);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Abril Fatface";
   font-size: 38px;
-  font-weight: 600;
+  font-weight: 400;
+  color: #bd93f9;
+  letter-spacing: 1px;
+  line-height: normal;
 }
 #title-h2 {
-  font-style: italic;
-  font-weight: lighter;
+  /* font-style: italic; */
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 15px;
+  letter-spacing: 5px;
+  /* color: #565669; */
+}
+
+button {
+  width: 100px;
+  height: 50px;
+  padding: 10px;
+  background-color: #bd93f9;
+}
+
+#button-container {
+  position: absolute;
+  bottom: 250px;
+  width: 400px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  /* background-color: antiquewhite; */
 }
