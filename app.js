@@ -3,20 +3,27 @@ console.log("Rock, Paper, Scissors game!");
 const buttonRock = document.getElementById("button-rock");
 const buttonPaper = document.getElementById("button-paper");
 const buttonScissors = document.getElementById("button-scissors");
+let buttons = Array.from(document.getElementsByTagName("button"));
 
 buttonRock.textContent = "ROCK";
 buttonPaper.textContent = "PAPER";
 buttonScissors.textContent = "SCISSORS";
 
-const choseRock = buttonRock.addEventListener("click", () => {
-  return "rock";
-});
-const chosePaper = buttonPaper.addEventListener("click", () => {
-  return "paper";
-});
-const choseScissors = buttonScissors.addEventListener("click", () => {
-  return "scissors";
-});
+function playerChoice() {
+  for (let button of buttons) {
+    button.addEventListener("click", () => {
+      if (button.id === "button-rock") {
+        return "rock";
+      }
+      if (button.id === "button-paper") {
+        return "paper";
+      }
+      if (button.id === "button-scissors") {
+        return "scissors";
+      }
+    });
+  }
+}
 
 function computerChoice() {
   let result = Math.floor(Math.random() * 3 + 1);
@@ -27,14 +34,6 @@ function computerChoice() {
     return "paper";
   } else if (result === 3) {
     return "scissors";
-  }
-}
-
-function playerChoice() {
-  if (!(choice === "rock" || choice === "paper" || choice === "scissors")) {
-    return playerChoice();
-  } else {
-    return choice;
   }
 }
 
