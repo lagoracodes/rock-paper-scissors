@@ -22,36 +22,25 @@ function playerChoice() {
   }
 }
 
-function oneRound(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) {
   if (playerSelection === 'rock' && computerSelection === 'paper') {
-    return 'YOU LOST! PAPER BEATS ROCK!';
+    return 'You lost! Paper beats rock!';
   }
   if (playerSelection === 'rock' && computerSelection === 'scissors') {
-    return 'YOU WON! ROCK BEATS SCISSORS!';
+    return 'You won! Rock beats scissors!';
   }
   if (playerSelection === 'paper' && computerSelection === 'rock') {
-    return 'YOU WON! PAPER BEATS ROCK!';
+    return 'You won! Paper beats rock!';
   }
   if (playerSelection === 'paper' && computerSelection === 'scissors') {
-    return 'YOU LOST! SCISSORS BEAT PAPER!';
+    return 'You lost! Scissors beat paper!';
   }
   if (playerSelection === 'scissors' && computerSelection === 'paper') {
-    return 'YOU WON! SCISSORS BEAT PAPER!';
+    return 'You won! Scissors beat paper!';
   }
   if (playerSelection === 'scissors' && computerSelection === 'rock') {
-    return 'YOU LOST! ROCK BEATS SCISSORS!';
+    return 'You lost! Rock beats scissors!';
   } else if (playerSelection === computerSelection) {
-    return "IT'S A DRAW!";
+    return "It's a draw!";
   }
 }
-
-function game() {
-  for (let i = 0; i <= 5; i++) {
-    let player = playerChoice();
-    let computer = computerChoice();
-    let choices = `Player's choice: ${player}, Computer's choice: ${computer}, Result:`;
-    console.log(choices, oneRound(player, computer));
-  }
-}
-
-console.log(game());
