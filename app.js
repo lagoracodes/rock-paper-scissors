@@ -1,5 +1,28 @@
 console.log("Rock, Paper, Scissors game!");
 
+let playerScore = 0;
+let computerScore = 0;
+
+const resultBrowser = document.createElement("h1");
+resultBrowser.className = "h1-result";
+resultBrowser.textContent = "FINAL RESULT \n (invisible until the end)";
+const playerScoreBrowser = document.createElement("h2");
+playerScoreBrowser.className = "h2-score";
+playerScoreBrowser.textContent = `Player Score: ${playerScore}`;
+const computerScoreBrowser = document.createElement("h2");
+computerScoreBrowser.className = "h2-score";
+computerScoreBrowser.textContent = `Computer Score: ${computerScore}`;
+
+const gameTextDiv = document.createElement("div");
+gameTextDiv.className = "game-text";
+
+const gameContainer = document.querySelector("#game-container");
+gameContainer.appendChild(gameTextDiv);
+
+gameTextDiv.appendChild(resultBrowser);
+gameTextDiv.appendChild(playerScoreBrowser);
+gameTextDiv.appendChild(computerScoreBrowser);
+
 const buttonRock = document.getElementById("rock");
 const buttonPaper = document.getElementById("paper");
 const buttonScissors = document.getElementById("scissors");
@@ -12,9 +35,6 @@ buttonScissors.textContent = "SCISSORS";
 // const clickedScissors = buttonScissors.addEventListener("click", game);
 
 const buttons = document.querySelectorAll(".choices");
-
-let playerScore = 0;
-let computerScore = 0;
 
 let choiceP = undefined;
 let choiceC = undefined;
@@ -68,5 +88,3 @@ function playRound(playerSelection, computerSelection) {
 }
 
 let thisRoundChoices = `Player chose: ${choiceP}, Computer chose: ${choiceP}`;
-console.log(thisRoundChoices);
-console.log(playRound(choiceP, choiceC));
