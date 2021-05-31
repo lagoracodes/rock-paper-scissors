@@ -4,6 +4,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: Poppins;
 }
 
 #title-container {
@@ -31,6 +32,7 @@ body {
   color: #bd93f9;
   letter-spacing: 1px;
   line-height: normal;
+  filter: opacity(0.8) drop-shadow(0 0 0 blue);
 }
 #title-h2 {
   /* font-style: italic; */
@@ -46,6 +48,11 @@ button {
   height: 50px;
   padding: 10px;
   background-color: #bd93f9;
+  font-family: Poppins;
+  font-weight: 500;
+  letter-spacing: 2px;
+  border-radius: 10px;
+  filter: opacity(0.5) drop-shadow(0 0 0 blue);
 }
 
 #button-container {

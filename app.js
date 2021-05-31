@@ -29,20 +29,24 @@ buttonScissors.textContent = "SCISSORS";
 
 const buttons = document.querySelectorAll(".choices");
 
+let playerScore = 0;
+let computerScore = 0;
+
+playerScoreBrowser.textContent = `Player Score: ${playerScore}`;
+computerScoreBrowser.textContent = `Computer Score: ${computerScore}`;
+
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     let playerChoice = button.getAttribute("id");
     let compChoice = computerChoice();
-    let thisRoundChoices = `Player chose: ${playerChoice}, Computer chose: ${compChoice}`;
-    console.log(thisRoundChoices);
     console.log(playRound(playerChoice, compChoice));
+    let thisRoundChoices = `Player chose: ${playerChoice}, Computer chose: ${compChoice}`;
+    playerScoreBrowser.textContent = `Player Score: ${playerScore}`;
+    computerScoreBrowser.textContent = `Computer Score: ${computerScore}`;
+    console.log(thisRoundChoices);
     console.log(playerScore, computerScore);
   });
 });
-let playerScore = 0;
-let computerScore = 0;
-playerScoreBrowser.textContent = `Player Score: ${playerScore}`;
-computerScoreBrowser.textContent = `Computer Score: ${computerScore}`;
 
 function computerChoice() {
   let result = Math.floor(Math.random() * 3 + 1);
