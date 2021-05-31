@@ -1,17 +1,14 @@
 console.log("Rock, Paper, Scissors game!");
 
-let playerScore = 0;
-let computerScore = 0;
-
 const resultBrowser = document.createElement("h1");
 resultBrowser.className = "h1-result";
 resultBrowser.textContent = "FINAL RESULT \n (invisible until the end)";
+
 const playerScoreBrowser = document.createElement("h2");
 playerScoreBrowser.className = "h2-score";
-playerScoreBrowser.textContent = `Player Score: ${playerScore}`;
+
 const computerScoreBrowser = document.createElement("h2");
 computerScoreBrowser.className = "h2-score";
-computerScoreBrowser.textContent = `Computer Score: ${computerScore}`;
 
 const gameTextDiv = document.createElement("div");
 gameTextDiv.className = "game-text";
@@ -30,31 +27,31 @@ buttonRock.textContent = "ROCK";
 buttonPaper.textContent = "PAPER";
 buttonScissors.textContent = "SCISSORS";
 
-// const clickedRock = buttonRock.addEventListener("click", game);
-// const clickedPaper = buttonPaper.addEventListener("click", game);
-// const clickedScissors = buttonScissors.addEventListener("click", game);
-
 const buttons = document.querySelectorAll(".choices");
-
-let choiceP = undefined;
-let choiceC = undefined;
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    choice = button.getAttribute("id");
-    console.log(choice);
+    let playerChoice = button.getAttribute("id");
+    let compChoice = computerChoice();
+    let thisRoundChoices = `Player chose: ${playerChoice}, Computer chose: ${compChoice}`;
+    console.log(thisRoundChoices);
+    console.log(playRound(playerChoice, compChoice));
+    console.log(playerScore, computerScore);
   });
 });
+let playerScore = 0;
+let computerScore = 0;
+playerScoreBrowser.textContent = `Player Score: ${playerScore}`;
+computerScoreBrowser.textContent = `Computer Score: ${computerScore}`;
 
 function computerChoice() {
   let result = Math.floor(Math.random() * 3 + 1);
-
   if (result === 1) {
-    choiceC = "rock";
+    return "rock";
   } else if (result === 2) {
-    choiceC = "paper";
+    return "paper";
   } else if (result === 3) {
-    choiceC = "scissors";
+    return "scissors";
   }
 }
 
@@ -86,5 +83,3 @@ function playRound(playerSelection, computerSelection) {
     return "It's a draw!";
   }
 }
-
-let thisRoundChoices = `Player chose: ${choiceP}, Computer chose: ${choiceP}`;

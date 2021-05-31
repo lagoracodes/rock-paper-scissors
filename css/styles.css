@@ -25,19 +25,20 @@ body {
 }
 #title-text {
   margin: auto;
-  font-family: "Abril Fatface";
+  font-family: "Poppins";
   font-size: 38px;
-  font-weight: 400;
+  font-weight: 800;
   color: #bd93f9;
   letter-spacing: 1px;
   line-height: normal;
 }
 #title-h2 {
   /* font-style: italic; */
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Poppins";
   font-size: 15px;
-  letter-spacing: 5px;
-  /* color: #565669; */
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #9a7fcc;
 }
 
 button {
