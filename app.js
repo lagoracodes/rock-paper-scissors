@@ -1,7 +1,11 @@
 console.log("Rock, Paper, Scissors game!");
 
+// uztaisi if'u, kur kad beidzas spēle (win/lose/draw), tad parādās play again poga
+// play again poga var būt sasaistīta ar "final result" parādīšanu
+
+
 const resultBrowser = document.createElement("h1");
-resultBrowser.className = "h1-result";
+resultBrowser.id = "h1-result";
 resultBrowser.textContent = "FINAL RESULT \n (invisible until the end)";
 
 const playerScoreBrowser = document.createElement("h2");
@@ -10,15 +14,18 @@ playerScoreBrowser.className = "h2-score";
 const computerScoreBrowser = document.createElement("h2");
 computerScoreBrowser.className = "h2-score";
 
+const scoreContainer = document.createElement("div");
+scoreContainer.id = "score-container";
+
 const gameTextDiv = document.createElement("div");
-gameTextDiv.className = "game-text";
+gameTextDiv.id = "game-text";
 
 const gameContainer = document.querySelector("#game-container");
 gameContainer.appendChild(gameTextDiv);
-
 gameTextDiv.appendChild(resultBrowser);
-gameTextDiv.appendChild(playerScoreBrowser);
-gameTextDiv.appendChild(computerScoreBrowser);
+gameTextDiv.appendChild(scoreContainer);
+scoreContainer.appendChild(playerScoreBrowser);
+scoreContainer.appendChild(computerScoreBrowser);
 
 const buttonRock = document.getElementById("rock");
 const buttonPaper = document.getElementById("paper");
