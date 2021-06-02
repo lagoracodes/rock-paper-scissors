@@ -80,6 +80,17 @@ button {
   /* background: antiquewhite; */
 }
 
-/* #game-text {
-  background:aquamarine;
-} */
+#final-result {
+  display: none;
+}
+
+.active-score {
+  color: #bd93f9;
+}
+
+.results-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -3,53 +3,60 @@ console.log("Rock, Paper, Scissors game!");
 // uztaisi if'u, kur kad beidzas spēle (win/lose/draw), tad parādās play again poga
 // play again poga var būt sasaistīta ar "final result" parādīšanu
 
+// fināla teksts (win/lose/draw), kurš parādās spēlēs beigās
 const resultBrowser = document.createElement("h1");
-resultBrowser.id = "h1-result";
+resultBrowser.id = "final-result";
 resultBrowser.textContent = "FINAL RESULT (invisible until the end)";
 
-//spēlētāja rezultāta 'string' daļa
-const playerScoreBrowser = document.createElement("h2");
-playerScoreBrowser.className = "h2-score";
-//spēlētāja rezultāta 'number' daļa
+// spēlētāja rezultāta 'string' daļa
+const playerScoreStatic = document.createElement("h2");
+playerScoreStatic.className = "h2-score";
+playerScoreStatic.textContent = `Player Score: `;
+// spēlētāja rezultāta 'number' daļa
 const playerScoreActive = document.createElement("h2");
-playerScoreActive.id = "player-score-active";
+playerScoreActive.className = "active-score";
 
-//datora rezultāta 'string' daļa
-const computerScoreBrowser = document.createElement("h2");
-computerScoreBrowser.className = "h2-score";
-
-//datora rezultāta 'number' daļa
+// datora rezultāta 'string' daļa
+const computerScoreStatic = document.createElement("h2");
+computerScoreStatic.className = "h2-score";
+computerScoreStatic.textContent = `Computer Score: `;
+//  rezultāta 'number' daļa
 const computerScoreActive = document.createElement("h2");
-computerScoreActive.id = "computer-score-active";
+computerScoreActive.className = "active-score";
 
-// container, kurā iekšā spēlētāja un datora rezultāti
+// spēlētāja rezultātu container
+const playerScoreContainer = document.createElement("div");
+playerScoreContainer.className = "results-container";
+// datora rezultātu container
+const computerScoreContainer = document.createElement("div");
+computerScoreContainer.className = "results-container";
+
+// container, kurā iekšā spēlētāja un datora rezultātu containeri
 const scoreContainer = document.createElement("div");
 scoreContainer.id = "score-container";
 
-const gameTextDiv = document.createElement("div");
-gameTextDiv.id = "game-text";
-
 const gameContainer = document.querySelector("#game-container");
-gameContainer.appendChild(gameTextDiv);
-// gameTextDiv.appendChild(resultBrowser);
-gameTextDiv.appendChild(scoreContainer);
-scoreContainer.appendChild(playerScoreBrowser);
-scoreContainer.appendChild(computerScoreBrowser);
+
+gameContainer.appendChild(resultBrowser);
+gameContainer.appendChild(scoreContainer);
+scoreContainer.appendChild(playerScoreContainer);
+scoreContainer.appendChild(computerScoreContainer);
+playerScoreContainer.appendChild(playerScoreStatic);
+playerScoreContainer.appendChild(playerScoreActive);
+computerScoreContainer.appendChild(computerScoreStatic);
+computerScoreContainer.appendChild(computerScoreActive);
 
 const buttonRock = document.getElementById("rock");
 const buttonPaper = document.getElementById("paper");
 const buttonScissors = document.getElementById("scissors");
-buttonRock.textContent = "ROCK";
-buttonPaper.textContent = "PAPER";
-buttonScissors.textContent = "SCISSORS";
 
 const buttons = document.querySelectorAll(".choices");
 
 let playerScore = 0;
 let computerScore = 0;
 
-playerScoreBrowser.textContent = `Player Score: ${playerScore}`;
-computerScoreBrowser.textContent = `Computer Score: ${computerScore}`;
+playerScoreActive.textContent = `${playerScore}`;
+computerScoreActive.textContent = `${computerScore}`;
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -57,8 +64,8 @@ buttons.forEach((button) => {
     let compChoice = computerChoice();
     console.log(playRound(playerChoice, compChoice));
     let thisRoundChoices = `Player chose: ${playerChoice}, Computer chose: ${compChoice}`;
-    playerScoreBrowser.textContent = `Player Score: ${playerScore}`;
-    computerScoreBrowser.textContent = `Computer Score: ${computerScore}`;
+    playerScoreActive.textContent = `${playerScore}`;
+    computerScoreActive.textContent = `${computerScore}`;
     console.log(thisRoundChoices);
     console.log(playerScore, computerScore);
   });
