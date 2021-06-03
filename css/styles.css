@@ -82,6 +82,10 @@ body {
 
 .active-score {
   color: #bd93f9;
+  font-family: Poppins;
+  font-size: 40px;
+  font-weight: 800;
+  padding: 10px;
 }
 
 .results-container {
@@ -90,4 +94,12 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0px 30px;
+}
+
+.rotate-for-player {
+  transform: rotate(90deg);
+}
+
+.rotate-for-computer {
+  transform: scale(-1, 1) rotate(90deg);
 }

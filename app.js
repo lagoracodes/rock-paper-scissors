@@ -58,11 +58,57 @@ let computerScore = 0;
 playerScoreActive.textContent = `${playerScore}`;
 computerScoreActive.textContent = `${computerScore}`;
 
+const rockIcon = document.getElementById("img-rock");
+const paperIcon = document.getElementById("img-paper");
+const scissorsIcon = document.getElementById("img-scissors");
+
+const choicesContainer = document.createElement("div");
+gameContainer.appendChild(choicesContainer);
+
+const playerChoiceDiv = document.createElement("div");
+playerChoiceDiv.className = "choices-container";
+const computerChoiceDiv = document.createElement("div");
+computerChoiceDiv.className = "choices-container";
+gameContainer.appendChild(playerChoiceDiv);
+gameContainer.appendChild(computerChoiceDiv);
+
+const playerChoiceStatic = document.createElement("h2");
+playerChoiceStatic.className = "choice-static";
+const computerChoiceStatic = document.createElement("h2");
+computerChoiceStatic.className = "choice-static";
+
+function test(playerChoice, computerChoice) {
+  playerChoiceStatic.textContent = "You chose: ";
+  computerChoiceStatic.textContent = "Computer chose: ";
+  let playerChoiceActive = undefined;
+  let computerChoiceActive = undefined;
+  if (playerChoice === "rock") {
+    playerChoiceActive = rockIcon;
+    playerChoiceActive.className = "rotate-for-player";
+  }
+  if (playerChoice === "paper") {
+    playerChoiceActive = paperIcon;
+    playerChoiceActive.className = "rotate-for-player";
+  }
+  if (playerChoice === "scissors") {
+    playerChoiceActive = scissorsIcon;
+    playerChoiceActive.className = "rotate-for-player";
+  }
+  playerChoiceActive.className = "rotate-for-player";
+  computerChoiceActive.className = "rotate-for-player";
+
+  playerChoiceDiv.appendChild(playerChoiceStatic);
+  playerChoiceDiv.appendChild(playerChoiceActive);
+  computerChoiceDiv.appendChild(computerChoiceStatic);
+  computerChoiceDiv.appendChild(computerChoiceActive);
+}
+
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     let playerChoice = button.getAttribute("id");
     let compChoice = computerChoice();
     console.log(playRound(playerChoice, compChoice));
+    test(playerChoice, compChoice);
     let thisRoundChoices = `Player chose: ${playerChoice}, Computer chose: ${compChoice}`;
     playerScoreActive.textContent = `${playerScore}`;
     computerScoreActive.textContent = `${computerScore}`;
