@@ -62,44 +62,55 @@ const rockIcon = document.getElementById("img-rock");
 const paperIcon = document.getElementById("img-paper");
 const scissorsIcon = document.getElementById("img-scissors");
 
-const choicesContainer = document.createElement("div");
-gameContainer.appendChild(choicesContainer);
-
 const playerChoiceDiv = document.createElement("div");
 playerChoiceDiv.className = "choices-container";
 const computerChoiceDiv = document.createElement("div");
 computerChoiceDiv.className = "choices-container";
-gameContainer.appendChild(playerChoiceDiv);
-gameContainer.appendChild(computerChoiceDiv);
+
+const choicesContainer = document.createElement("div");
+choicesContainer.className = "both-choice-div";
+gameContainer.appendChild(choicesContainer);
+
+choicesContainer.appendChild(playerChoiceDiv);
+choicesContainer.appendChild(computerChoiceDiv);
 
 const playerChoiceStatic = document.createElement("h2");
 playerChoiceStatic.className = "choice-static";
+playerChoiceStatic.textContent = "You chose: ";
+
 const computerChoiceStatic = document.createElement("h2");
 computerChoiceStatic.className = "choice-static";
+computerChoiceStatic.textContent = "Computer chose: ";
+
+playerChoiceDiv.appendChild(playerChoiceStatic);
+computerChoiceDiv.appendChild(computerChoiceStatic);
 
 function test(playerChoice, computerChoice) {
-  playerChoiceStatic.textContent = "You chose: ";
-  computerChoiceStatic.textContent = "Computer chose: ";
-  let playerChoiceActive = undefined;
-  let computerChoiceActive = undefined;
+  let playerChoiceActive = document.createElement("img");
+  let computerChoiceActive = document.createElement("img");
+  playerChoiceActive.className = "rotate-for-player";
+  computerChoiceActive.className = "rotate-for-computer";
+
   if (playerChoice === "rock") {
-    playerChoiceActive = rockIcon;
-    playerChoiceActive.className = "rotate-for-player";
+    playerChoiceActive.setAttribute("src", "images/rock.png");
   }
   if (playerChoice === "paper") {
-    playerChoiceActive = paperIcon;
-    playerChoiceActive.className = "rotate-for-player";
+    playerChoiceActive.setAttribute("src", "images/paper.png");
   }
   if (playerChoice === "scissors") {
-    playerChoiceActive = scissorsIcon;
-    playerChoiceActive.className = "rotate-for-player";
+    playerChoiceActive.setAttribute("src", "images/scissors.png");
   }
-  playerChoiceActive.className = "rotate-for-player";
-  computerChoiceActive.className = "rotate-for-player";
+  if (computerChoice === "rock") {
+    computerChoiceActive.setAttribute("src", "images/rock.png");
+  }
+  if (computerChoice === "paper") {
+    computerChoiceActive.setAttribute("src", "images/paper.png");
+  }
+  if (computerChoice === "scissors") {
+    computerChoiceActive.setAttribute("src", "images/scissors.png");
+  }
 
-  playerChoiceDiv.appendChild(playerChoiceStatic);
   playerChoiceDiv.appendChild(playerChoiceActive);
-  computerChoiceDiv.appendChild(computerChoiceStatic);
   computerChoiceDiv.appendChild(computerChoiceActive);
 }
 

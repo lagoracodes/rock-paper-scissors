@@ -98,8 +98,28 @@ body {
 
 .rotate-for-player {
   transform: rotate(90deg);
+  /* transform: scaleX(-1); */
 }
 
 .rotate-for-computer {
   transform: scale(-1, 1) rotate(90deg);
+}
+
+.both-choice-div {
+  position: relative;
+  top: 40px;
+  display: flex;
+  flex-direction: row;
+  color: azure;
+  background-color: pink;
+}
+
+.choices-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.choice-static {
+  margin: 0px 43px;
 }
