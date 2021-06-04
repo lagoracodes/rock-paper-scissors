@@ -85,12 +85,14 @@ computerChoiceStatic.textContent = "Computer chose: ";
 playerChoiceDiv.appendChild(playerChoiceStatic);
 computerChoiceDiv.appendChild(computerChoiceStatic);
 
-function test(playerChoice, computerChoice) {
-  let playerChoiceActive = document.createElement("img");
-  let computerChoiceActive = document.createElement("img");
-  playerChoiceActive.className = "rotate-for-player";
-  computerChoiceActive.className = "rotate-for-computer";
+let playerChoiceActive = document.createElement("img");
+let computerChoiceActive = document.createElement("img");
+playerChoiceActive.className = "rotate-for-player";
+computerChoiceActive.className = "rotate-for-computer";
+playerChoiceDiv.appendChild(playerChoiceActive);
+computerChoiceDiv.appendChild(computerChoiceActive);
 
+function test(playerChoice, computerChoice) {
   if (playerChoice === "rock") {
     playerChoiceActive.setAttribute("src", "images/rock.png");
   }
@@ -109,9 +111,6 @@ function test(playerChoice, computerChoice) {
   if (computerChoice === "scissors") {
     computerChoiceActive.setAttribute("src", "images/scissors.png");
   }
-
-  playerChoiceDiv.appendChild(playerChoiceActive);
-  computerChoiceDiv.appendChild(computerChoiceActive);
 }
 
 buttons.forEach((button) => {
