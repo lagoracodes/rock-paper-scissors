@@ -50,7 +50,7 @@ body {
 
 #button-container {
   position: absolute;
-  bottom: 200px;
+  bottom: 100px;
   width: auto;
   height: 50px;
   display: flex;
@@ -106,8 +106,7 @@ body {
 }
 
 .both-choice-div {
-  position: relative;
-  top: 40px;
+  margin-top: 50px;
   display: flex;
   flex-direction: row;
   color: azure;
@@ -123,4 +122,13 @@ body {
 
 .choice-static {
   margin: 0px 43px;
+}
+
+.round-results-div {
+  font-family: Poppins;
+  font-size: 25px;
+  font-weight: 700;
+  color: azure;
+  margin-top: 130px;
+  /* background-color: antiquewhite; */
 }

@@ -3,15 +3,10 @@ console.log("Rock, Paper, Scissors game!");
 // uztaisi if'u, kur kad beidzas spēle (win/lose/draw), tad parādās play again poga
 // play again poga var būt sasaistīta ar "final result" parādīšanu
 
-// fināla teksts (win/lose/draw), kurš parādās spēlēs beigās
-const resultBrowser = document.createElement("h1");
-resultBrowser.id = "final-result";
-resultBrowser.textContent = "FINAL RESULT (invisible until the end)";
-
 // spēlētāja rezultāta 'string' daļa
 const playerScoreStatic = document.createElement("h2");
 playerScoreStatic.className = "h2-score";
-playerScoreStatic.textContent = `Player Score: `;
+playerScoreStatic.textContent = `Player's Score: `;
 // spēlētāja rezultāta 'number' daļa
 const playerScoreActive = document.createElement("h2");
 playerScoreActive.className = "active-score";
@@ -19,7 +14,7 @@ playerScoreActive.className = "active-score";
 // datora rezultāta 'string' daļa
 const computerScoreStatic = document.createElement("h2");
 computerScoreStatic.className = "h2-score";
-computerScoreStatic.textContent = `Computer Score: `;
+computerScoreStatic.textContent = `Computer's Score: `;
 //  rezultāta 'number' daļa
 const computerScoreActive = document.createElement("h2");
 computerScoreActive.className = "active-score";
@@ -37,7 +32,6 @@ scoreContainer.id = "score-container";
 
 const gameContainer = document.querySelector("#game-container");
 
-gameContainer.appendChild(resultBrowser);
 gameContainer.appendChild(scoreContainer);
 scoreContainer.appendChild(playerScoreContainer);
 scoreContainer.appendChild(computerScoreContainer);
@@ -61,6 +55,13 @@ computerScoreActive.textContent = `${computerScore}`;
 const rockIcon = document.getElementById("img-rock");
 const paperIcon = document.getElementById("img-paper");
 const scissorsIcon = document.getElementById("img-scissors");
+
+const roundResultsDiv = document.createElement("div");
+roundResultsDiv.className = "round-results-div";
+const roundResults = document.createElement("h2");
+roundResults.className = "round-results";
+gameContainer.appendChild(roundResultsDiv);
+roundResultsDiv.appendChild(roundResults);
 
 const playerChoiceDiv = document.createElement("div");
 playerChoiceDiv.className = "choices-container";
@@ -113,16 +114,23 @@ function test(playerChoice, computerChoice) {
   }
 }
 
+function finalResult() {
+  if (playerScore === 5 && computerScore < 5) {
+    return;
+  }
+  if (playerScore < 5 && computerScore === 5) {
+    return;
+  }
+}
+
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     let playerChoice = button.getAttribute("id");
     let compChoice = computerChoice();
-    console.log(playRound(playerChoice, compChoice));
+    playRound(playerChoice, compChoice);
     test(playerChoice, compChoice);
-    let thisRoundChoices = `Player chose: ${playerChoice}, Computer chose: ${compChoice}`;
     playerScoreActive.textContent = `${playerScore}`;
     computerScoreActive.textContent = `${computerScore}`;
-    console.log(thisRoundChoices);
     console.log(playerScore, computerScore);
   });
 });
@@ -141,28 +149,28 @@ function computerChoice() {
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === "rock" && computerSelection === "paper") {
     computerScore++;
-    return "You lost! Paper beats rock!";
+    roundResults.textContent = "You lost this round! Paper beats rock!";
   }
   if (playerSelection === "rock" && computerSelection === "scissors") {
     playerScore++;
-    return "You won! Rock beats scissors!";
+    roundResults.textContent = "You won this round! Rock beats scissors!";
   }
   if (playerSelection === "paper" && computerSelection === "rock") {
     playerScore++;
-    return "You won! Paper beats rock!";
+    roundResults.textContent = "You won this round! Paper beats rock!";
   }
   if (playerSelection === "paper" && computerSelection === "scissors") {
     computerScore++;
-    return "You lost! Scissors beat paper!";
+    roundResults.textContent = "You lost this round! Scissors beat paper!";
   }
   if (playerSelection === "scissors" && computerSelection === "paper") {
     playerScore++;
-    return "You won! Scissors beat paper!";
+    roundResults.textContent = "You won this round! Scissors beat paper!";
   }
   if (playerSelection === "scissors" && computerSelection === "rock") {
     computerScore++;
-    return "You lost! Rock beats scissors!";
+    roundResults.textContent = "You lost this round! Rock beats scissors!";
   } else if (playerSelection === computerSelection) {
-    return "It's a draw!";
+    roundResults.textContent = "It's a draw!";
   }
 }
