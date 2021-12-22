@@ -15,7 +15,7 @@ playerScoreActive.className = "active-score";
 const computerScoreStatic = document.createElement("h2");
 computerScoreStatic.className = "h2-score";
 computerScoreStatic.textContent = `Computer's Score: `;
-//  rezultāta 'number' daļa
+// datora rezultāta 'number' daļa
 const computerScoreActive = document.createElement("h2");
 computerScoreActive.className = "active-score";
 
